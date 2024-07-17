@@ -1,12 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import { Label } from "@/components/ui/label";
-import { RadioGroup } from "@radix-ui/react-context-menu";
-import { RadioGroupItem } from "@radix-ui/react-radio-group";
 import React from "react";
-import {} from "recharts";
 
 export default function AuthPage() {
   const [shwPsswd, setshwPsswd] = React.useState(false);
@@ -20,53 +15,61 @@ export default function AuthPage() {
     }, 1000);
   }
 
+  const styles = {
+    card: "aspect-square border shadow rounded-lg p-4 flex flex-col gap-1 justify-center items-center cursor-pointer hover:bg-gray-50 active:scale-95 transition-all",
+    icon: "w-5 h-5"
+  }
+
   return (
-    <div className="flex flex-col gap-2 justify-center items-center">
-      <h2 className="scroll-m-20 text-xl text-center font-semibold tracking-tight">
+    // <div>
+    <div className="w-screen h-screen flex flex-col gap-2 justify-center items-center">
+      <h4>
         Continue with
-      </h2>
-      <div className="flex gap-4">
-        <RadioGroup defaultValue="comfortable">
-          {/* <div className="flex items-center space-x-2"> */}
-          <RadioGroupItem value="default" id="r1" />
-          {/* <Label htmlFor="r1">Default</Label> */}
-          {/* </div> */}
-          {/* <div className="flex items-center space-x-2"> */}
-          <RadioGroupItem value="comfortable" id="r2" />
-          {/* <Label htmlFor="r2">Comfortable</Label> */}
-          {/* </div> */}
-          {/* <div className="flex items-center space-x-2"> */}
-          <RadioGroupItem value="compact" id="r3" />
-          {/* <Label htmlFor="r3">Compact</Label> */}
-          {/* </div> */}
-        </RadioGroup>
-        <Button
-          variant="ghost"
-          size="icon"
-          disabled={isLoading}
-          onClick={login}
-        >
-          {isLoading ? (
-            <Icons.spinner className="h-4 w-4 animate-spin" />
-          ) : (
-            <Icons.google className="h-4 w-4" />
-          )}
-          {/* Continue with Google */}
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          disabled={isLoading}
-          onClick={login}
-        >
-          {isLoading ? (
-            <Icons.spinner className="h-4 w-4 animate-spin" />
-          ) : (
-            <Icons.gitHub className="h-4 w-4" />
-          )}
-          {/* Continue with Github */}
-        </Button>
+      </h4>
+      <div className="flex gap-2">
+        <div className={`${styles.card} px-5`}>
+          <Icons.apple className={styles.icon} />
+          <p>Apple</p>
+        </div>
+        <div className={styles.card}>
+          <Icons.google className={styles.icon} />
+          <p>Google</p>
+        </div>
+        <div className={styles.card}>
+          <Icons.gitHub className={styles.icon} />
+          <p>Github</p>
+        </div>
       </div>
     </div>
   );
 }
+
+
+
+
+{/* <Button
+        variant="ghost"
+        size="icon"
+        disabled={isLoading}
+        onClick={login}
+      >
+        {isLoading ? (
+          <Icons.spinner className="h-4 w-4 animate-spin" />
+        ) : (
+          <Icons.google className="h-4 w-4" />
+        )}
+        Continue with Google
+      </Button>
+      <Button
+        variant="ghost"
+        size="icon"
+        disabled={isLoading}
+        onClick={login}
+      >
+        {isLoading ? (
+          <Icons.spinner className="h-4 w-4 animate-spin" />
+        ) : (
+          <Icons.gitHub className="h-4 w-4" />
+        )}
+        Continue with Github
+      </Button> */}
